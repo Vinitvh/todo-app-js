@@ -9,9 +9,24 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-    <title>Frontend Mentor | Todo app</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="main.js"></script>
+    <title>Todo app</title>
   </head>
   <body>
-    Todo
+    <header id="header" aria-role="header">
+      <div class="header-content">
+        <h1>TODO</h1>
+        <span><img src="/images/icon-moon.svg" alt="moon" /></span>
+      </div>
+    </header>
+    <main aria-role="main">
+      <section class="create-section">
+        <div class="create-todo-container">
+          <span class="check-circle"></span>
+          <p class="create-todo-text">Create a new todo..</p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

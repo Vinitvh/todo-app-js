@@ -1,9 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  /* Primary */
+  --bright-blue: hsl(220, 98%, 61%);
+
+  /* Neutral */
+  /* Light Theme */
+  --very-light-gray: hsl(0, 0%, 98%);
+  --very-light-grayish-blue: hsl(236, 33%, 92%);
+  --grayish-blue-light: hsl(233, 11%, 84%);
+  --dark-grayish-blue-light: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue-light: hsl(235, 19%, 35%);
+
+  /* Dark Theme */
+  --very-dark-blue: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --light-grayish-blue: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue: hsl(237, 14%, 26%);
+}
+
 body {
   height: 100vh;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h1 {
+  color: #fff;
+  letter-spacing: 0.6rem;
+}
+
+#header {
+  width: 100%;
+  height: 30vh;
+  background: url("./images/bg-mobile-light.jpg") no-repeat center/cover;
+  position: relative;
+}
+
+.header-content {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 18%;
+}
+
+.create-section {
+  width: 80%;
+  margin: auto;
+}
+
+.create-section .create-todo-container {
+  width: 80%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 15%;
+  background-color: var(--very-light-gray);
+  padding: 0.9rem 0.9rem;
+  border-radius: 6px;
+}
+
+.create-todo-container .check-circle {
+  height: 25px;
+  width: 25px;
+  background-color: var(--very-light-grayish-blue);
+  border-radius: 50%;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-todo-container .create-todo-text {
+  padding: 0.5rem 1rem 0 1rem;
+  color: var(--dark-grayish-blue-light);
+  font-size: 0.8rem;
 }
