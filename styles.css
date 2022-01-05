@@ -31,6 +31,7 @@
 body {
   height: 100vh;
   font-family: "Josefin Sans", sans-serif;
+  background-color: var(--very-light-grayish-blue);
 }
 
 h1 {
@@ -80,8 +81,51 @@ h1 {
   justify-content: center;
 }
 
-.create-todo-container .create-todo-text {
-  padding: 0.5rem 1rem 0 1rem;
-  color: var(--dark-grayish-blue-light);
+.create-todo-container .create-todo-input {
+  padding: 0.2rem 1rem 0 1rem;
   font-size: 0.8rem;
+  border: none;
+  outline: none;
+  background-color: var(--very-light-gray);
+}
+
+.create-todo-container .create-todo-input::placeholder {
+  color: var(--dark-grayish-blue-light);
+}
+
+.todo-container {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  background-color: var(--very-light-gray);
+}
+
+.list-check {
+  height: 1.5rem;
+  width: 1.9rem;
+  background-color: var(--very-light-grayish-blue);
+  border-radius: 50%;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.todo-list {
+  width: 80%;
+  margin: auto;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--very-dark-grayish-blue-light);
+  font-weight: 700;
+  padding: 1rem 0 0.5rem 0;
+  border-bottom: 1px solid var(--grayish-blue-light);
+}
+
+.cancel-btn {
+  width: 100%;
+  text-align: end;
 }
