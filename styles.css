@@ -17,7 +17,9 @@
   --light-grayish-blue-hover: hsl(236, 33%, 92%);
   --dark-grayish-blue: hsl(234, 11%, 52%);
   --very-dark-grayish-blue: hsl(233, 14%, 35%);
-  --very-dark-grayish-blue: hsl(237, 14%, 26%);
+  --very-dark-gb: hsl(237, 14%, 26%);
+  --green: #3925a8;
+  --pink: #5531ab;
 
   --base-fs: 1.6rem;
   --fw-normal: 400;
@@ -100,6 +102,7 @@ header.card h1 {
 .add {
   margin: 4rem 0 2.5rem 0;
   border-radius: 0.5rem;
+  padding: 1rem 0;
 }
 
 .add .check-container .add-btn {
@@ -153,4 +156,53 @@ header.card h1 {
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.card .check-container .check-input {
+  transform: scale(1.8);
+  opacity: 0;
+}
+
+.card .check-container .check {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card .check-container .check-input:checked + .check {
+  background: url("/images/icon-check.svg") no-repeat center,
+    linear-gradient(45deg, rgb(79, 196, 235), #5531ab);
+}
+
+.todos .card:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.todos > * + * {
+  border-top: 0.2rem solid var(--very-dark-gb);
+}
+
+.item {
+  flex: 1;
+  color: var(--light-grayish-blue);
+  padding: 1.5rem 1rem;
+}
+
+.item:hover {
+  color: var(--light-grayish-blue-hover);
+}
+
+.clear {
+  opacity: 0;
+  padding: 0 1rem;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+}
+
+.todos .card:hover .clear {
+  opacity: 1;
 }
