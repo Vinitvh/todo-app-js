@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="vinitvh" />
     <link
       rel="icon"
       type="image/png"
@@ -12,30 +13,34 @@
     <link rel="stylesheet" href="styles.css" />
     <script defer src="main.js"></script>
     <title>Todo app</title>
+    <meta
+      name="description"
+      content="This is a solution to Frontend Mentor challenge"
+    />
   </head>
   <body>
-    <header id="header" aria-role="header">
-      <div class="header-content">
-        <h1>TODO</h1>
-        <span><img src="/images/icon-moon.svg" alt="moon" /></span>
-      </div>
+    <header class="card" aria-role="header">
+      <h1>TODO</h1>
+      <button class="theme-toggle">
+        <img src="/images/icon-sun.svg" alt="change theme" />
+      </button>
     </header>
     <main aria-role="main">
-      <section class="create-section">
-        <div class="create-todo-container">
-          <span class="check-circle"></span>
+      <div class="card add">
+        <div class="check-container">
+          <button class="add-btn"></button>
+        </div>
+        <div class="txt-container">
           <input
             type="text"
-            class="create-todo-input"
+            class="txt-input"
             placeholder="Create a new todo.."
+            spellcheck="false"
+            autocomplete="off"
+            id="add-todo"
           />
         </div>
-      </section>
-      <section class="todo-list-section">
-        <div class="todo-container">
-          <ul class="todo-items"></ul>
-        </div>
-      </section>
+      </div>
     </main>
   </body>
 </html>
