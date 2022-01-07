@@ -105,26 +105,12 @@ header.card h1 {
   padding: 1rem 0;
 }
 
-.add .check-container .add-btn {
-  color: var(--light-grayish-blue);
-  font-size: var(--base-fs);
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease-in-out;
-}
-
 .add .check-container {
   transition: background 0.3s ease-in-out;
 }
 
 .add .check-container:hover {
   background: var(--bright-blue);
-}
-
-.add .check-container:hover .add-btn {
-  color: #ffffff;
 }
 
 .add .check-container:active {

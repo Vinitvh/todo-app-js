@@ -1,25 +1,35 @@
-const todos = [
-  {
-    item: "To complete JavaScript",
-    isCompleted: false,
-  },
+const txtInput = document.querySelector(".txt-input");
 
-  {
-    item: "To Meditate",
-    isCompleted: true,
-  },
+function main() {
+  addTodo();
 
-  {
-    item: "Sleep early",
-    isCompleted: false,
-  },
-];
+  txtInput.addEventListener("change", (e) => {
+    e.preventDefault();
+    const item = txtInput.value.trim();
+    if (item) {
+      let todos = !localStorage.getItem("todos")
+        ? []
+        : JSON.parse(localStorage.getItem("todos"));
 
-localStorage.setItem("todos", JSON.stringify(todos));
+      let currentTodo = {
+        item,
+        isCompleted: false,
+      };
+      if (todos.item === item) {
+        console.log(true);
+        alert("Todo already exists!");
+      } else {
+        addTodo([currentTodo]);
+        todos.push(currentTodo);
+        localStorage.setItem("todos", JSON.stringify(todos));
+      }
+    }
+    txtInput.value = "";
+    txtInput.focus();
+  });
+}
 
-function addTodo() {
-  let todos = JSON.parse(localStorage.getItem("todos"));
-
+function addTodo(todos = JSON.parse(localStorage.getItem("todos"))) {
   if (!todos) {
     return null;
   }
@@ -87,8 +97,6 @@ function addTodo() {
   });
 }
 
-addTodo();
-
 function removeTodo(element) {
   let todos = JSON.parse(localStorage.getItem("todos"));
   for (let i = 0; i < todos.length; i++) {
@@ -98,3 +106,5 @@ function removeTodo(element) {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", main);
