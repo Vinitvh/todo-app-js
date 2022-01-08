@@ -107,4 +107,15 @@ function removeTodo(element) {
   }
 }
 
+function checkCompleted() {
+  let todos = JSON.parse(localStorage.getItem("todos"));
+  counter = 1;
+  todos.forEach((todo) => {
+    if (todo.isCompleted === false) {
+      return counter++;
+    }
+  });
+  console.log(todos.length - counter);
+}
+
 document.addEventListener("DOMContentLoaded", main);
