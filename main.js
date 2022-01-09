@@ -1,6 +1,9 @@
 const txtInput = document.querySelector(".txt-input");
+const itemsLeft = document.querySelector(".items-left");
+const clear = document.querySelector(".clear-completed");
 
 function main() {
+  checkCompleted();
   addTodo();
 
   txtInput.addEventListener("change", (e) => {
@@ -69,6 +72,8 @@ function addTodo(todos = JSON.parse(localStorage.getItem("todos"))) {
             todo.isCompleted = true;
             localStorage.setItem("todos", JSON.stringify(todos));
             para.style.textDecoration = "line-through";
+            // let itemsLeft = checkCompleted();
+            itemsLeft.textContent = checkCompleted();
           }
         });
       }
@@ -76,6 +81,7 @@ function addTodo(todos = JSON.parse(localStorage.getItem("todos"))) {
         todo.isCompleted = false;
         localStorage.setItem("todos", JSON.stringify(todos));
         para.style.textDecoration = "none";
+        itemsLeft.textContent = checkCompleted();
       }
     });
 
@@ -109,13 +115,23 @@ function removeTodo(element) {
 
 function checkCompleted() {
   let todos = JSON.parse(localStorage.getItem("todos"));
-  counter = 1;
+  falseCount = 0;
   todos.forEach((todo) => {
     if (todo.isCompleted === false) {
-      return counter++;
+      falseCount = falseCount + 1;
+      itemsLeft.textContent = falseCount;
     }
   });
-  console.log(todos.length - counter);
+  return falseCount;
 }
+clear.addEventListener("click", () => {
+  let todos = JSON.parse(localStorage.getItem("todos"));
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].isCompleted === true) {
+      todos.splice(i, 1);
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+  }
+});
 
 document.addEventListener("DOMContentLoaded", main);
