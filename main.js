@@ -1,26 +1,22 @@
 const txtInput = document.querySelector(".txt-input");
 const itemsLeft = document.querySelector(".items-left");
 const clear = document.querySelector(".clear-completed");
-const themeToggle = document.getElementById("theme-toggle");
-
-console.log(themeToggle);
-
-themeToggle.addEventListener("click", function () {
-  document.querySelector("body").classList.toggle("light");
-  const themeImg = this.children[0];
-  themeImg.setAttribute(
-    "src",
-    themeImg.getAttribute("src") === "./images/icon-sun.svg"
-      ? "./images/icon-moon.svg"
-      : "./images/icon-sun.svg"
-  );
-});
+const themeToggle = document.querySelector(".theme-toggle");
 
 function main() {
   checkCompleted();
   addTodo();
   // theme-switcher
-
+  themeToggle.addEventListener("click", function () {
+    document.querySelector("body").classList.toggle("light");
+    const themeImg = this.children[0];
+    themeImg.setAttribute(
+      "src",
+      themeImg.getAttribute("src") === "./images/icon-sun.svg"
+        ? "./images/icon-moon.svg"
+        : "./images/icon-sun.svg"
+    );
+  });
   // filter todo - all, active, completed
   document.querySelector(".filter").addEventListener("click", function (e) {
     const id = e.target.id;
