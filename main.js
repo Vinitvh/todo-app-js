@@ -1,10 +1,35 @@
 const txtInput = document.querySelector(".txt-input");
 const itemsLeft = document.querySelector(".items-left");
 const clear = document.querySelector(".clear-completed");
+const themeToggle = document.getElementById("theme-toggle");
+
+console.log(themeToggle);
+
+themeToggle.addEventListener("click", function () {
+  document.querySelector("body").classList.toggle("light");
+  const themeImg = this.children[0];
+  themeImg.setAttribute(
+    "src",
+    themeImg.getAttribute("src") === "./images/icon-sun.svg"
+      ? "./images/icon-moon.svg"
+      : "./images/icon-sun.svg"
+  );
+});
 
 function main() {
   checkCompleted();
   addTodo();
+  // theme-switcher
+
+  // filter todo - all, active, completed
+  document.querySelector(".filter").addEventListener("click", function (e) {
+    const id = e.target.id;
+    if (id) {
+      document.querySelector(".on").classList.remove("on");
+      document.getElementById(id).classList.add("on");
+      document.querySelector(".todos").className = `todos ${id}`;
+    }
+  });
 
   txtInput.addEventListener("change", (e) => {
     e.preventDefault();
@@ -124,6 +149,7 @@ function checkCompleted() {
   });
   return falseCount;
 }
+
 clear.addEventListener("click", () => {
   let todos = JSON.parse(localStorage.getItem("todos"));
   for (let i = 0; i < todos.length; i++) {
